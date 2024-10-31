@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman 2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      a {
+        padding: 10px 20px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Selamat Datang di Halaman 2</h1>
+    <button id="fullscreenLink2" onclick="toggleFullScreen()">
+      full screen
+    </button>
+    <a href="index.html" id="fullscreenLink"
+      >Kembali ke Halaman 1 (Fullscreen)</a
+    >
+
+    <script>
+      //   window.addEventListener("load", (e) => {
+      //     console.log("page is fully loaded");
+      //     document.documentElement.requestFullscreen();
+      //   });
+
+      toggleFullScreen = () => {
+        var doc = window.document;
+        var docEl = doc.documentElement;
+
+        var requestFullScreen =
+          docEl.requestFullscreen ||
+          docEl.mozRequestFullScreen ||
+          docEl.webkitRequestFullScreen ||
+          docEl.msRequestFullscreen;
+        var cancelFullScreen =
+          doc.exitFullscreen ||
+          doc.mozCancelFullScreen ||
+          doc.webkitExitFullscreen ||
+          doc.msExitFullscreen;
+
+        if (
+          !doc.fullscreenElement &&
+          !doc.mozFullScreenElement &&
+          !doc.webkitFullscreenElement &&
+          !doc.msFullscreenElement
+        ) {
+          requestFullScreen.call(docEl);
+        } else {
+          cancelFullScreen.call(doc);
+        }
+      };
+      toggleFullScreen();
+      //   function tes() {
+      //     // document.getElementById("fullscreenLink").onclick = function () {
+      //     //   if (document.documentElement.requestFullscreen) {
+      //     document.documentElement.requestFullscreen();
+      //     //   }
+      //     // };
+      //   }
+
+      //   tes();
+    </script>
+  </body>
+</html>
